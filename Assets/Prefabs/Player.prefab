@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 4289246088723482397}
   - component: {fileID: 4722395475520509609}
   - component: {fileID: 4052866284693657299}
+  - component: {fileID: 4858331020074465532}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -201,6 +202,22 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.9839783
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &4858331020074465532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979650944014736374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a4d52e3a192534abbf8ea98360157a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextMesh_Name: {fileID: 9068747096743046193}
+  TextMesh_Level: {fileID: 7119327256917956422}
+  Animator_Player: {fileID: 6628332597890887826}
+  Prefab_SpecialLevelUp: {fileID: 3280519133390621005, guid: 44d23f49734da6c458ad67814763be91, type: 3}
 --- !u!1 &5704646795369533241
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,6 +403,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
+--- !u!95 &6628332597890887826 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8422892626592999198, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
+  m_PrefabInstance: {fileID: 3393657305155803020}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6628332597900173180 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8422892626600249584, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
