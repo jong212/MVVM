@@ -1,13 +1,17 @@
 using System.ComponentModel;
 
-public class ViewModelBase
+namespace ViewModel
 {
-
-    #region PropChanged
-    public event PropertyChangedEventHandler PropertyChanged;
-    protected virtual void OnPropertyChanged(string propertyName)
+    public class ViewModelBase
     {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        #region PropChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        #endregion
     }
-    #endregion
 }
+

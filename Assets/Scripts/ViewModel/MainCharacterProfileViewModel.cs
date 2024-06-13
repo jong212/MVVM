@@ -1,3 +1,4 @@
+using ViewModel;
 
 public class MainCharacterProfileViewModel : ViewModelBase
 {
