@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 
-public class SubProfileViewModel
+public class SubProfileViewModel : ViewModelBase
 {
     private int _userId;
     private string _name;
@@ -39,12 +36,4 @@ public class SubProfileViewModel
             OnPropertyChanged(nameof(Level));
         }
     } 
-
-    #region PropChanged
-    public event PropertyChangedEventHandler PropertyChanged;
-    protected virtual void OnPropertyChanged(string propertyName)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
-    #endregion
 }

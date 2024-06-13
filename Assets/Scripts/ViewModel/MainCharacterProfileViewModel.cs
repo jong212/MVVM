@@ -1,6 +1,5 @@
-using System.ComponentModel;
 
-public class MainCharacterProfileViewModel
+public class MainCharacterProfileViewModel : ViewModelBase
 {
     private string _iconName;
     private int _userId;
@@ -60,11 +59,4 @@ public class MainCharacterProfileViewModel
         }
     }
 
-#region PropChanged
-    public event PropertyChangedEventHandler PropertyChanged;
-    protected virtual void OnPropertyChanged(string propertyName)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
-#endregion
 }

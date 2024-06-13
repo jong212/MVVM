@@ -1,6 +1,5 @@
-using System.ComponentModel;
 
-public class PlayerViewModel
+public class PlayerViewModel : ViewModelBase
 {
     private int _userId;
     private string _name;
@@ -37,12 +36,4 @@ public class PlayerViewModel
             OnPropertyChanged(nameof(Level));
         }
     }
-
-    #region PropChanged
-    public event PropertyChangedEventHandler PropertyChanged;
-    protected virtual void OnPropertyChanged(string propertyName)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
-    #endregion
 }
