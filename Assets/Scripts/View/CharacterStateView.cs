@@ -9,4 +9,14 @@ public class CharacterStateView : MonoBehaviour
 
     private CharacterStateViewModel _vm;
 
+    private void OnEnable()
+    {
+        if(_vm == null)
+        {
+            _vm = new CharacterStateViewModel();
+            _vm.PropertyChanged += OnPropertyChanged;
+            _vm.RegisterHpChangedEvent(true);
+            _vm.RefreshViewModel();
+        }
+    }
 }
