@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UI;
 using ViewModel;
@@ -19,4 +20,9 @@ public class CharacterStateView : MonoBehaviour
             _vm.RefreshViewModel();
         }
     }
+
+    private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
+    {
+    }
+
 }
