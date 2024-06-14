@@ -23,6 +23,12 @@ public class CharacterStateView : MonoBehaviour
 
     private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
     {
+        switch (e.PropertyName)
+        {
+            case nameof(_vm.CharacterHp):
+                Slider_Hp.value = ((float)_vm.CharacterHp / 100); // 뒤에 100은 임의값 MaxHp 프로퍼티 추가 필요함
+                break;
+        }
     }
 
 }
