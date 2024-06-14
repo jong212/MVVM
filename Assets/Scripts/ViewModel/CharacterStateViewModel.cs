@@ -17,6 +17,7 @@ namespace ViewModel
                     return;
 
                 _characterHp = value;
+                OnPropertyChanged(nameof(CharacterHp));
             }
         }
 
