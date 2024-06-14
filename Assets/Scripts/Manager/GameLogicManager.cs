@@ -55,7 +55,6 @@ public class GameLogicManager
     {
         _levelUpCallback -= levelupCallback;
     }
-
     public void RequestLevelUp()
     {
         int reqUserId = _curSelectedPlayerId;
@@ -75,6 +74,18 @@ public class GameLogicManager
         {
             var curPlayer = _playerDic[requestId];
             callback.Invoke(curPlayer.UserId, curPlayer.Name, curPlayer.Level);
+        }
+    }
+
+    public void RegisterHpChangedCallback(Action<int> hpChangedCallback, bool isRegister)
+    {
+        if (isRegister)
+        {
+            _hpChangedCallback += hpChangedCallback;
+        }
+        else
+        {
+            _hpChangedCallback -= hpChangedCallback;
         }
     }
 
