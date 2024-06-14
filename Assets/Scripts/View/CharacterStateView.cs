@@ -21,6 +21,16 @@ public class CharacterStateView : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        if(_vm != null)
+        {
+            _vm.RegisterHpChangedEvent(false);
+            _vm.PropertyChanged -= OnPropertyChanged;
+            _vm = null;
+        }   
+    }
+
     private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
     {
         switch (e.PropertyName)
