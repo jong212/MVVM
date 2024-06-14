@@ -18,6 +18,7 @@ namespace ViewModel.Extension
 
         public static void RegisterHpChangedEvent(this CharacterStateViewModel vm, bool isRegister)
         {
+            GameLogicManager.Inst.RegisterHpChangedCallback(vm.OnResponseHpChangedEvent, isRegister);
         }
 
         public static void OnResponseHpChangedEvent(this CharacterStateViewModel vm, int userId, int hp)
