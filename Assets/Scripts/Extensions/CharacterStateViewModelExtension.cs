@@ -13,6 +13,7 @@ namespace ViewModel.Extension
 
         public static void OnRefreshViewModel(this CharacterStateViewModel vm, int hp)
         {
+            vm.CharacterHp = hp;
         }
 
         public static void RegisterHpChangedEvent(this CharacterStateViewModel vm, bool isRegister)
