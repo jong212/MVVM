@@ -7,9 +7,11 @@ namespace ViewModel.Extension
     {
         public static void RefreshViewModel(this CharacterStateViewModel vm)
         {
+            var tempId = 2;
+            GameLogicManager.Inst.RefreshCharacterHp(tempId, vm.OnRefreshViewModel);
         }
 
-        public static void OnRefreshViewModel(this CharacterStateViewModel vm)
+        public static void OnRefreshViewModel(this CharacterStateViewModel vm, int hp)
         {
         }
 
