@@ -1,18 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class CharacterStateViewModel : MonoBehaviour
+namespace ViewModel
 {
-    // Start is called before the first frame update
-    void Start()
+    public class CharacterStateViewModel
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
+
