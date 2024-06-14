@@ -23,6 +23,7 @@ namespace ViewModel.Extension
 
         public static void OnResponseHpChangedEvent(this CharacterStateViewModel vm, int userId, int hp)
         {
+            vm.CharacterHp = hp;
         }
     }
 }
