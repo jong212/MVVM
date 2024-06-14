@@ -24,6 +24,7 @@ public class GameLogicManager
 
     private static Dictionary<int, Player> _playerDic = new Dictionary<int, Player>();
     private Action<int, int> _levelUpCallback;
+    private Action<int> _hpChangedCallback;
 
     public static GameLogicManager Inst
     {
@@ -77,8 +78,15 @@ public class GameLogicManager
         }
     }
 
-    public void RequestTargetCharacterDamage(int requestPlayerId, int damage)
+    public void RequestTargetCharacterDamage(int requestCharacterId, int damage)
     {
-
+        _curSelectedPlayerId = requestCharacterId;
+        if (_playerDic.ContainsKey(requestCharacterId))
+        {
+            var curPlayer = _playerDic[requestCharacterId];
+            var finalDamage = curPlayer.HP - damage;
+            curPlayer.HP = (finalDamage < 0) ? 0 : finalDamage;
+            _hpChangedCallback.Invoke(curPlayer.HP);
+        }
     }
 }
