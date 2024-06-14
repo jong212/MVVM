@@ -6,5 +6,6 @@ public class DamageView : MonoBehaviour
 {
     public void OnClick_GiveDamageToCharacter()
     {
+        GameLogicManager.Inst.RequestTargetCharacterDamage(2, 10);
     }
 }

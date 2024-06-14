@@ -8,11 +8,13 @@ public class Player
         UserId = userId;
         Name = name;
         Level = 0;
+        HP = 100;
     }
 
     public int UserId { get; private set; }
     public string Name { get; private set; }
     public int Level { get; set; }
+    public int HP { get; set; }
 }
 
 public class GameLogicManager
@@ -73,5 +75,10 @@ public class GameLogicManager
             var curPlayer = _playerDic[requestId];
             callback.Invoke(curPlayer.UserId, curPlayer.Name, curPlayer.Level);
         }
+    }
+
+    public void RequestTargetCharacterDamage(int requestPlayerId, int damage)
+    {
+
     }
 }
