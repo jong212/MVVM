@@ -77,6 +77,16 @@ public class GameLogicManager
         }
     }
 
+    public void RefreshCharacterHp(int requestId, Action<int> callback)
+    {
+        _curSelectedPlayerId = requestId;
+        if (_playerDic.ContainsKey(requestId))
+        {
+            var curPlayer = _playerDic[requestId];
+            callback.Invoke(curPlayer.HP);
+        }
+    }
+
     public void RegisterHpChangedCallback(Action<int> hpChangedCallback, bool isRegister)
     {
         if (isRegister)
