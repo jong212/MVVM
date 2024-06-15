@@ -359,7 +359,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8783270155246260230}
-  - component: {fileID: 1770619308726559372}
+  - component: {fileID: 8414923186153933375}
   m_Layer: 5
   m_Name: MainProfileUI
   m_TagString: Untagged
@@ -391,7 +391,7 @@ RectTransform:
   m_AnchoredPosition: {x: 70, y: -70}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &1770619308726559372
+--- !u!114 &8414923186153933375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -400,12 +400,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8783270155246260249}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc9931aeca0abaf40be76248e1a68a01, type: 3}
+  m_Script: {fileID: 11500000, guid: 7689ae17e7d53aa4fa5c55a250dba1ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Image_CharacterIcon: {fileID: 8783270155693503656}
-  Text_CharacterName: {fileID: 4763267843004329101}
-  Text_CharacterLevel: {fileID: 3991919426516211315}
+  Text_Name: {fileID: 4763267843004329101}
+  Text_Level: {fileID: 3991919426516211315}
+  Image_Icon: {fileID: 3321955637269473984}
 --- !u!1 &8783270155693503658
 GameObject:
   m_ObjectHideFlags: 0
