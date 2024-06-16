@@ -1,5 +1,12 @@
 
-// 뷰모델은 데이터를 가져와서 뷰한테 쏴주는 역할만 함(데이터 바인딩 역할만 함)
+
+/*  # ViewModel
+ *  [핵심] 
+ *  1. 프로퍼티 값이 변경되면 Invoke 되도록 get/set 위주의 코드만 작성하고, View에서 알 수 있도록 데이터 바인딩을 위해 set에서 OnPropertyChanged 호출 시키도록 한다.
+ *   ㄴ 즉, 뷰모델은 뷰한테 야 너 데이터 변경 됐어 ! 라고 알려주는 역할만 해야함.
+ */
+
+
 
 using System.ComponentModel;
 using ViewModel;

@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-// 우리가 강화버튼을 누르면 요청은 가고 게임 로직매니저가 그걸 결국엔 처리하지만 그거에 대한 데이터의 변경과 관여는 모델과 뷰 모델을 통해서 이루어지고 관여 그 자체는 따로 요청 하지는 않는다 알아서.......
- // 게임 로직 매니저는 하나여야만 함
-// 모델을 수정했을 때 그와 관련된 모든 뷰 모델한테 알려야 한다
-// 
+// GameLogicManager는 게임 로직을 처리하는 싱글톤 클래스입니다.
+// 강화 버튼을 누르면 요청을 받아 처리하지만, 데이터 변경 및 관리는 모델과 뷰모델을 통해 이루어집니다.
+// GameLogicManager는 하나만 존재해야 합니다.
+// 모델을 수정하면 관련된 모든 뷰모델에게 알려야 합니다.
 public class Player
 {
     public Player(int userId, string name)
@@ -24,9 +24,13 @@ public class GameLogicManager
     private static GameLogicManager _instance = null;
     private int _curSelectedPlayerId = 0;
 
+    // 플레이어 정보를 저장하는 딕셔너리
     private static Dictionary<int, Player> _playerDic = new Dictionary<int, Player>();
+
+    // 레벨업 콜백을 저장하는 액션
     private Action<int, int> _levelUpCallback;
 
+    // 싱글톤 인스턴스를 반환합니다.
     public static GameLogicManager Inst
     {
         get
@@ -40,6 +44,7 @@ public class GameLogicManager
         }
     }
 
+    // 임시로 플레이어 리스트를 초기화합니다.
     public static void TempInitPlayerList()
     {
         _playerDic.Add(1, new Player(1, "죠스바"));
@@ -47,6 +52,7 @@ public class GameLogicManager
         _playerDic.Add(3, new Player(3, "바밤바"));
     }
 
+    // 레벨업 콜백을 등록합니다.
     public void RegisterLevelUpCallback(Action<int, int> levelupCallback)
     {       
         _levelUpCallback += levelupCallback;
@@ -57,7 +63,8 @@ public class GameLogicManager
         _levelUpCallback -= levelupCallback;
     }
 
-    //버튼 클릭 했을 때 바로 인보크 해서 등록되어있는 이벤트들 실행되게 함
+    // 버튼 클릭 시 호출되는 메서드로, 등록된 이벤트들을 실행합니다.
+    // 모델(Player)의 데이터를 수정하고 관련된 뷰모델에 알립니다.
     public void RequestLevelUp()
     {
         int reqUserId = _curSelectedPlayerId;
@@ -65,12 +72,16 @@ public class GameLogicManager
         if (_playerDic.ContainsKey(reqUserId))
         {
             var curPlayer = _playerDic[reqUserId];
+
+            // 모델이 수정되면 관련된 모든 뷰모델에게 알립니다.
+            // 이때 _levelUpCallback.Invoke 메서드를 호출하여 구독하고 있는 모든 뷰모델에 변경된 데이터를 전달합니다.
             curPlayer.Level++;
             _levelUpCallback.Invoke(reqUserId, curPlayer.Level);
         }
     }
-    //버튼 클릭 했을 때 바로 인보크 해서 등록되어있는 이벤트들 실행되게 함
 
+    // 버튼 클릭 시 호출되는 메서드로, 등록된 이벤트들을 실행합니다.
+    // 모델(Player)의 데이터를 수정하고 관련된 뷰모델에 알립니다.
     public void RequestLevelUpDouble()
     {
         int reqUserId = _curSelectedPlayerId;
@@ -78,11 +89,15 @@ public class GameLogicManager
         if (_playerDic.ContainsKey(reqUserId))
         {
             var curPlayer = _playerDic[reqUserId];
+
+            // 모델이 수정되면 관련된 모든 뷰모델에게 알립니다.
+            // 이때 _levelUpCallback.Invoke 메서드를 호출하여 구독하고 있는 모든 뷰모델에 변경된 데이터를 전달합니다.
             curPlayer.Level += 2;
             _levelUpCallback.Invoke(reqUserId, curPlayer.Level);
         }
     }
 
+    // 유저 정보를 갱신합니다.
     // A-2 : RefreshCharacterInfo 메서드는 requestId에 해당하는 유저 정보를 _playerDic 딕셔너리에서 검색합니다.
     public void RefreshCharacterInfo(int requestId, Action<int, string, int> callback)
     {
